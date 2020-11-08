@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-center gap-6">
-    <div v-for="item in features">
+    <div v-for="item in features" :key="item">
       <div class="flex-initial flex flex-col items-center">
         <img
           class="w-1/2 mb-3 image-illustration"

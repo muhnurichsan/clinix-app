@@ -23,10 +23,10 @@
 export default {
   methods: {
     toggleDarkMode() {
-      if (this.$colorMode.preference !== 'dark') {
-        this.$colorMode.preference = 'dark'
+      if (this.$colorMode.value !== 'dark') {
+        this.$colorMode.value = 'dark'
       } else {
-        this.$colorMode.preference = 'light'
+        this.$colorMode.value = 'light'
       }
     }
   }

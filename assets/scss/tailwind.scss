@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Poppins', sans-serif;
+  transition: background-color .2s;
+}
+
+.dark-mode body {
+  @apply bg-gray-800;
+  color: #f1eadc;
+}
+
+.dark-mode {
+  body > div {
+    background: linear-gradient(15deg, #2A2D43 50%, #414361 50.1%);
+  }
+}
+
+body > div {
+  transition: all .2s;
+  background: linear-gradient(15deg, #99E1D9 50%, #F0F7F4 50.1%);
+}
+
+button:focus {
+  outline: 0;
+}
+
+.card {
+  @apply rounded overflow-hidden shadow-lg bg-clinix-white-300;
+  /*@apply max-w-lg;*/
+}
+
+.dark-mode .card {
+  @apply bg-gray-700;
+}
+
+.image-illustration {
+  filter: drop-shadow(6px 7px 6px rgba(0,0,0,.2));
+}

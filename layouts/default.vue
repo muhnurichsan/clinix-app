@@ -5,4 +5,20 @@
   </div>
 </template>
 
-<style></style>
+<script>
+export default {
+  head: {
+    title: 'Clinix App',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Clinix App is a simple web app hydrate and calorie calculator'
+      }
+    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  }
+}
+</script>

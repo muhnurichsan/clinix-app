@@ -1,23 +1,29 @@
 <template>
 	<div>
-		<section class="container mt-8">
-			<div class="flex mt-16 sm:flex-none">
-				<div class="flex-1 ml-40">
-					<p class="text-justify italic text-3xl">
+		<section class="container mt-20">
+			<div
+				class="md:flex sm:inline-block mt-16 md:flex-row sm:flex-row-reverse"
+			>
+				<div class="flex-1 md:ml-40 sm:ml-0">
+					<p class="md:text-justify text-center italic md:text-3xl text-2xl">
 						Get Healthy Everyday With Us,
 						<br />
 						<strong>Clinix</strong>
 					</p>
-					<p class="text-justify">
+					<p class="md:text-justify text-center">
 						we provide an easier way to manage your healthy lifestyle as easy
 						just one click
 					</p>
-					<button class="bg-gray-700 rounded mt-2 py-2 px-3 hover:bg-gray-500">
-						Learn More
-					</button>
+					<div class="flex justify-center md:inline">
+						<button
+							class="bg-gray-700 rounded mt-2 py-2 px-3 hover:bg-gray-500"
+						>
+							Learn More
+						</button>
+					</div>
 				</div>
-				<div class="flex-1 ml-40 mt-">
-					<img :src="hero" alt="" class="w-2/4" />
+				<div class="flex-1 ml-40">
+					<img :src="hero" alt="" class="md:w-2/4 w-0" />
 				</div>
 			</div>
 		</section>

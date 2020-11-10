@@ -1,7 +1,9 @@
 <template>
 	<div class="mb-10 md:my-10 flex flex-col">
-    <Headline />
-		<div class="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-center gap-6 mt-12">
+		<Headline />
+		<div
+			class="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-center gap-6 mt-12"
+		>
 			<div v-for="item in features" :key="item.title">
 				<div class="flex-initial flex flex-col items-center">
 					<img
@@ -19,9 +21,11 @@
 							</p>
 						</div>
 						<div class="flex items-center mt-3">
-							<button class="mx-auto text-white font-bold py-2 px-4 rounded-full transition-all duration-300">
+							<button
+								class="mx-auto text-white font-bold py-2 px-4 rounded-full transition-all duration-300"
+							>
 								<div class="flex items-center gap-3">
-									<p>Try it now</p>
+									<nuxt-link :to="item.url">Try it now</nuxt-link>
 									<fa :icon="['fas', 'arrow-right']" class="pr-1 text-xl" />
 								</div>
 							</button>
@@ -57,21 +61,21 @@
 </script>
 
 <style scoped lang="scss">
-  button {
-    @apply bg-gray-700
-  }
+	button {
+		@apply bg-gray-700;
+	}
 
-  button:hover {
-    @apply bg-gray-600;
-  }
+	button:hover {
+		@apply bg-gray-600;
+	}
 
-  .dark-mode button {
-    @apply bg-gray-700;
-  }
+	.dark-mode button {
+		@apply bg-gray-700;
+	}
 
-  .dark-mode .card button {
-    @apply bg-gray-400 text-gray-700;
-  }
+	.dark-mode .card button {
+		@apply bg-gray-400 text-gray-700;
+	}
 
 	.badge {
 		@apply inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700;

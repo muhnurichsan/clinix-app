@@ -24,10 +24,10 @@
 							<button
 								class="mx-auto text-white font-bold py-2 px-4 rounded-full transition-all duration-300"
 							>
-								<div class="flex items-center gap-3">
-									<nuxt-link :to="item.url">Try it now</nuxt-link>
+								<nuxt-link :to="item.url" class="flex items-center gap-3">
+									<p>Try it now</p>
 									<fa :icon="['fas', 'arrow-right']" class="pr-1 text-xl" />
-								</div>
+								</nuxt-link>
 							</button>
 						</div>
 					</div>

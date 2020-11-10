@@ -146,13 +146,26 @@
 				</form>
 			</div>
 		</div>
-		<div class="card max-w-sm bg-white h-full ml-auto mr-auto rounded pb-64">
-			<p class="text-center">Hello <strong>name</strong></p>
-			<p>
+		<div class="card max-w-sm bg-white h-full ml-auto mr-auto rounded-sm mb-32">
+			<img
+				src="/illustration/data.svg"
+				alt=""
+				class="w-48 ml-auto mr-auto mt-8"
+			/>
+			<p class="text-center pt-10">Hi,there <strong>name</strong></p>
+			<p class="text-center">
+				this is your report <br />
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo modi
 				ipsum ex, tempore et ea libero culpa similique unde numquam dicta
 				delectus natus beatae ullam eum esse consequatur iste quos?
 			</p>
+			<div
+				class="bg-purple-700 w-full h-16 mt-20 flex flex-row justify-evenly divide-x-2 divide-gray-400"
+			>
+				<div class="w-full h-16 text-center pt-2">Age <br />19</div>
+				<div class="w-full h-16 text-center pt-2">Weight <br />68</div>
+				<div class="w-full h-16 text-center pt-2">Height <br />170</div>
+			</div>
 		</div>
 	</div>
 </template>

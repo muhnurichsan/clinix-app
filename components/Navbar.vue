@@ -24,7 +24,7 @@
 		</button>
 	</div>
 </template>
-Œ
+
 <script>
 	export default {
 		methods: {

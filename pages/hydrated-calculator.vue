@@ -50,23 +50,19 @@
 						placeholder="Full Name"
 					/>
 				</div>
-				<div class="w-full md:w-3/12 px-3 mb-3 md:mb-0">
-					<Input v-model="resource.age" label="Age" type="number" />
-				</div>
-				<div class="w-full md:w-1/3 px-3 mb-3 md:mb-0">
-					<Input
-						v-model="resource.height"
-						label="Height"
-						type="number"
-						placeholder="Centimeter (cm)"
-					/>
-				</div>
 				<div class="w-full md:w-1/3 px-3 mb-3 md:mb-0">
 					<Input
 						v-model="resource.weight"
 						label="Weight"
 						type="number"
 						placeholder="Kilogram (kg)"
+					/>
+				</div>
+				<div class="w-full md:w-1/3 px-3 mb-3 md:mb-0 pr-0">
+					<Select
+						v-model="resource.level_activity"
+						label="Level Activity"
+						:options="level_activities"
 					/>
 				</div>
 			</div>
@@ -93,19 +89,21 @@
 					Hi, <strong>{{ resource.name }}</strong>
 				</p>
 				<p class="capitalize">Gender: {{ resource.gender }}</p>
-				<p>Total Body Water: {{ result }} liter</p>
+				<p class="capitalize">
+					Level Activity:
+					{{
+						level_activities.find(
+							(item) => item.value === resource.level_activity
+						).label
+					}}
+				</p>
+				<p>Water Intake Daily: {{ result }} mililiter</p>
 			</div>
 			<div
 				class="bg-purple-700 w-full h-16 flex flex-row justify-evenly divide-x-2 divide-gray-400 text-white"
 			>
 				<div class="w-full h-16 text-center pt-2">
-					Age <br />{{ resource.age }}
-				</div>
-				<div class="w-full h-16 text-center pt-2">
 					Weight <br />{{ resource.weight }}kg
-				</div>
-				<div class="w-full h-16 text-center pt-2">
-					Height <br />{{ resource.height }}cm
 				</div>
 			</div>
 			<div class="w-full flex flex-row justify-between">
@@ -130,21 +128,39 @@
 
 <script>
 	import Input from "@/components/Input";
+	import Select from "@/components/Select";
 
 	export default {
 		head: {
 			title: "Hydrated Calculator",
 		},
-		components: { Input },
+		components: { Input, Select },
 		data() {
 			return {
 				resource: {
 					gender: "",
 					name: "",
-					age: "",
 					weight: "",
-					height: "",
+					level_activity: "",
 				},
+				level_activities: [
+					{
+						label: "Not Active",
+						value: "",
+					},
+					{
+						label: "Pretty Active",
+						value: "0.35",
+					},
+					{
+						label: "Active",
+						value: "0.7",
+					},
+					{
+						label: "Very Active",
+						value: "1.4",
+					},
+				],
 				result: null,
 			};
 		},
@@ -154,27 +170,26 @@
 					event.preventDefault();
 					event.stopPropagation();
 				}
-				const { gender, age, weight, height } = this.resource;
+				const { gender, weight, level_activity } = this.resource;
 				if (gender === "") {
 					alert("You mush choose a gender");
 					return;
 				}
 				let hydrated;
 				if (gender === "male") {
-					hydrated = 2.447 - 0.09145 * age + 0.1074 * height + 0.3362 * weight;
+					hydrated = weight / 30 + level_activity;
 				} else {
-					hydrated = -2.097 + 0.1067 * height + 0.2466 * weight;
+					hydrated = weight / 30 + level_activity;
 				}
 
-				this.result = hydrated.toFixed(2);
+				this.result = hydrated;
 			},
 			reset() {
 				this.resource = {
 					gender: "",
 					name: "",
-					age: "",
 					weight: "",
-					height: "",
+					level_activity: "",
 				};
 				this.result = null;
 			},

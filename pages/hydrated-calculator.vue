@@ -166,7 +166,7 @@
 			</p>
 			<p class="text-center">
 				this is your report <br />
-				your TBW is {{ TBW }}
+				your TBW (Total Body Water) is {{ Math.round(TBW) }}
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo modi
 				ipsum ex, tempore et ea libero culpa similique unde numquam dicta
 				delectus natus beatae ullam eum esse consequatur iste quos?

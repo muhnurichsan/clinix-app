@@ -7,18 +7,25 @@
   transition: background-color .2s;
 }
 
-.dark-mode body {
-  @apply bg-gray-800;
-  color: #f1eadc;
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .dark-mode {
+  body {
+    @apply bg-gray-800;
+    color: #f1eadc;
+  }
+
   body > div {
     background: linear-gradient(15deg, #2A2D43 50%, #414361 50.1%);
   }
 }
 
 body > div {
+  height: 100%;
   transition: all .2s;
   background: linear-gradient(15deg, #99E1D9 50%, #F0F7F4 50.1%);
 }
@@ -37,5 +44,5 @@ button:focus {
 }
 
 .image-illustration {
-  filter: drop-shadow(6px 7px 6px rgba(0,0,0,.2));
+  filter: drop-shadow(6px 7px 6px rgba(0, 0, 0, .2));
 }

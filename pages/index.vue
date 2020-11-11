@@ -14,10 +14,8 @@
 					<div class="card max-w-lg p-6">
 						<div class="">
 							<div class="font-bold text-xl mb-2">{{ item.title }}</div>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Voluptatibus quia, nulla! Maiores et perferendis eaque,
-								exercitationem praesentium nihil.
+							<p class="text-justify">
+								{{ item.description }}
 							</p>
 						</div>
 						<div class="flex items-center mt-3">
@@ -45,13 +43,15 @@
 					{
 						title: "How Much Water Should You Drink Per Day?",
 						image: "/illustration/hydrated.svg",
-						description: "",
-						url: "/hydrated-calculator",
+						description:
+							"Use this hydration calculator to easily calculate your recommended daily water intake you need to keep yourself healthy and at peak physical and mental performance.",
+						url: "/hydration-calculator",
 					},
 					{
 						title: "How Many Calories You Should Eat?",
 						image: "/illustration/calories.svg",
-						description: "",
+						description:
+							"The Calories Calculator can be used to estimate the number of calories a person needs to consume each day. This calculator can also provide some simple guidelines for gaining or losing weight",
 						url: "/calories-calculator",
 					},
 				],

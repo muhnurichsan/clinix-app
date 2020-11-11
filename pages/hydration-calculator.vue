@@ -1,12 +1,12 @@
 <template>
   <div>
     <h1 class="text-center uppercase font-bold text-2xl">
-      Hydrated Calculator
+      Hydration Calculator
     </h1>
     <form
       v-if="!result"
       class="w-full mt-24 mb-40 pb-20"
-      @submit="calcHydrated($event)"
+      @submit="calcCalories($event)"
     >
       <div class="flex flex-col justify-center items-center">
         <div class="text-5xl flex flex-row gap-4">
@@ -66,16 +66,9 @@
           />
         </div>
       </div>
-      <div class="w-full flex flex-row justify-end mb-6 gap-4">
+      <div class="w-full flex flex-row justify-end mb-6">
         <button
-          class="bg-gray-600 hover:bg-gray-400 hover:text-gray-700 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200"
-        >
-          <nuxt-link :to="'/'" class="flex justify-center items-center gap-3">
-            <p>Back to home</p>
-          </nuxt-link>
-        </button>
-        <button
-          @click="calcHydrated($event)"
+          @click="calcCalories($event)"
           class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200"
         >
           Submit
@@ -115,16 +108,15 @@
       </div>
       <div class="w-full flex flex-row justify-between">
         <button
-          type="button"
-          class="text-center bg-gray-600 hover:bg-gray-400 hover:text-gray-700 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
+          class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
         >
           <nuxt-link :to="'/'" class="flex justify-center items-center gap-3">
-            <p>Back to home</p>
+            <fa :icon="['fas', 'arrow-left']" class="pr-1 text-xl"/>
+            <p>Back</p>
           </nuxt-link>
         </button>
         <button
-          type="button"
-          class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
+          class="text-center bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
           @click="reset()"
         >
           <p>Calculate Again</p>
@@ -140,7 +132,7 @@ import Select from "@/components/Select";
 
 export default {
   head: {
-    title: "Hydrated Calculator",
+    title: "Hydration Calculator",
   },
   components: {Input, Select},
   data() {
@@ -157,15 +149,15 @@ export default {
           value: "",
         },
         {
-          label: "Pretty Active",
+          label: "Pretty Active (30-mins/day)",
           value: "0.35",
         },
         {
-          label: "Active",
+          label: "Active (1 hour/day)",
           value: "0.7",
         },
         {
-          label: "Very Active",
+          label: "Very Active (2 hour/day)",
           value: "1.4",
         },
       ],
@@ -173,7 +165,7 @@ export default {
     };
   },
   methods: {
-    calcHydrated(event) {
+    calcCalories(event) {
       if (event) {
         event.preventDefault();
         event.stopPropagation();

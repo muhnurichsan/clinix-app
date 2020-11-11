@@ -6,7 +6,7 @@
     <form
       v-if="!result"
       class="w-full mt-24 mb-40 pb-20"
-      @submit="calcCalories($event)"
+      @submit="calcHydrate($event)"
     >
       <div class="flex flex-col justify-center items-center">
         <div class="text-5xl flex flex-row gap-4">
@@ -66,10 +66,17 @@
           />
         </div>
       </div>
-      <div class="w-full flex flex-row justify-end mb-6">
+      <div class="w-full flex flex-row justify-end mb-6 gap-4">
         <button
-          @click="calcCalories($event)"
-          class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200"
+          class="bg-gray-600 hover:bg-gray-400 hover:text-gray-700 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200"
+        >
+          <nuxt-link :to="'/'" class="flex justify-center items-center gap-3">
+            <p>Back to home</p>
+          </nuxt-link>
+        </button>
+        <button
+          @click="calcHydrate($event)"
+          class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-800 text-white dark:text-gray-300 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200"
         >
           Submit
         </button>
@@ -165,7 +172,7 @@ export default {
     };
   },
   methods: {
-    calcCalories(event) {
+    calcHydrate(event) {
       if (event) {
         event.preventDefault();
         event.stopPropagation();

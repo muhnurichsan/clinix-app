@@ -36,7 +36,6 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/fontawesome'
   ],
 
   purgeCSS: {
@@ -52,13 +51,14 @@ export default {
   fontawesome: {
     component: 'fa',
     icons: {
-      solid: ['faSun', 'faMoon', 'faArrowRight'],
+      solid: ['faSun', 'faMoon', 'faArrowRight', 'faArrowLeft'],
       regular: ['faSun', 'faMoon'],
     }
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    '@nuxtjs/fontawesome',
     'nuxt-purgecss',
     '@nuxtjs/color-mode',
     '@nuxtjs/style-resources',

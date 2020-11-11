@@ -129,6 +129,9 @@
 	import Input from "@/components/Input";
 
 	export default {
+		head: {
+			title: "Hydrated Calculator",
+		},
 		components: { Input },
 		data() {
 			return {

@@ -145,6 +145,9 @@
 	import Select from "@/components/Select";
 
 	export default {
+		head: {
+			title: "Calories Calculator",
+		},
 		components: { Input, Select },
 		data() {
 			return {

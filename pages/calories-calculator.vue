@@ -91,7 +91,7 @@
 			class="card max-w-sm bg-white h-full ml-auto mr-auto rounded-sm mt-24 mb-32"
 		>
 			<img
-				src="/illustration/data.svg"
+				src="/illustration/datareport.svg"
 				alt=""
 				class="w-48 ml-auto mr-auto mt-8"
 			/>

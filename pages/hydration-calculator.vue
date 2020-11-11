@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h1 class="text-center uppercase font-bold text-2xl">
-			Hydrated Calculator
+			Hydration Calculator
 		</h1>
 		<form
 			v-if="!result"
@@ -132,7 +132,7 @@
 
 	export default {
 		head: {
-			title: "Hydrated Calculator",
+			title: "Hydration Calculator",
 		},
 		components: { Input, Select },
 		data() {
@@ -149,15 +149,15 @@
 						value: "",
 					},
 					{
-						label: "Pretty Active",
+						label: "Pretty Active (30-mins/day)",
 						value: "0.35",
 					},
 					{
-						label: "Active",
+						label: "Active (1 hour/day)",
 						value: "0.7",
 					},
 					{
-						label: "Very Active",
+						label: "Very Active (2 hour/day)",
 						value: "1.4",
 					},
 				],

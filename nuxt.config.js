@@ -36,6 +36,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/fontawesome',
   ],
 
   purgeCSS: {
@@ -58,16 +59,20 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    '@nuxtjs/fontawesome',
     'nuxt-purgecss',
     '@nuxtjs/color-mode',
-    '@nuxtjs/style-resources',
+    '@nuxtjs/style-resources'
   ],
 
   styleResources: {
     scss: [
-      './assets/*.scss',
+      './assets/**/*.scss',
     ]
+  },
+
+  transitions: {
+    name: 'page',
+    mode: 'out-in'
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

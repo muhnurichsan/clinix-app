@@ -2,7 +2,7 @@
   <div class="flex flex-col justify-between">
     <div class="container mx-auto px-4 flex flex-col gap-4 md:px-24">
       <Navbar/>
-      <Nuxt/>
+        <Nuxt/>
     </div>
     <footer class="h-10 text-center">Made with ❤️ by Clinix Team</footer>
   </div>

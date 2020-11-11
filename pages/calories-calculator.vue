@@ -1,5 +1,8 @@
 <template>
 	<div>
+		<h1 class="text-center uppercase font-bold text-2xl">
+			Calories Calculator
+		</h1>
 		<form
 			v-if="!result"
 			class="w-full mt-24 mb-40 pb-20"

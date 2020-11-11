@@ -20,6 +20,7 @@
 								type="text"
 								placeholder="your name"
 								name="nameMen"
+								v-model="formMen.name"
 							/>
 						</div>
 						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-6">
@@ -35,6 +36,7 @@
 								type="number"
 								placeholder="your age"
 								name="ageMen"
+								v-model="formMen.age"
 							/>
 						</div>
 						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -50,6 +52,7 @@
 								type="number"
 								placeholder="height in cm"
 								name="heightMen"
+								v-model="formMen.height"
 							/>
 						</div>
 						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -65,6 +68,7 @@
 								type="number"
 								placeholder="weight in kg"
 								name="weightMen"
+								v-model="formMen.weight"
 							/>
 						</div>
 						<div class="w-full">
@@ -72,6 +76,7 @@
 								<button
 									class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
 									type="button"
+									@click="calculateMen()"
 								>
 									Check
 								</button>
@@ -100,6 +105,7 @@
 								type="text"
 								placeholder="your name"
 								name="nameWoman"
+								v-model="formWoman.name"
 							/>
 						</div>
 						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-6">
@@ -115,6 +121,7 @@
 								type="number"
 								placeholder="height in cm"
 								name="heightWoman"
+								v-model="formWoman.height"
 							/>
 						</div>
 						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -130,6 +137,7 @@
 								type="number"
 								placeholder="weight in kg"
 								name="weightWoman"
+								v-model="formWoman.weight"
 							/>
 						</div>
 						<div class="w-full">
@@ -137,6 +145,7 @@
 								<button
 									class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
 									type="button"
+									@click="calculateWoman()"
 								>
 									Check
 								</button>
@@ -152,9 +161,12 @@
 				alt=""
 				class="w-48 ml-auto mr-auto mt-8"
 			/>
-			<p class="text-center pt-10">Hi,there <strong>name</strong></p>
+			<p class="text-center pt-10">
+				Hi,there <strong>{{ formMen.name }}</strong>
+			</p>
 			<p class="text-center">
 				this is your report <br />
+				your TBW is {{ TBW }}
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo modi
 				ipsum ex, tempore et ea libero culpa similique unde numquam dicta
 				delectus natus beatae ullam eum esse consequatur iste quos?
@@ -162,16 +174,45 @@
 			<div
 				class="bg-purple-700 w-full h-16 mt-20 flex flex-row justify-evenly divide-x-2 divide-gray-400"
 			>
-				<div class="w-full h-16 text-center pt-2">Age <br />19</div>
-				<div class="w-full h-16 text-center pt-2">Weight <br />68</div>
-				<div class="w-full h-16 text-center pt-2">Height <br />170</div>
+				<div class="w-full h-16 text-center pt-2">
+					Age <br />{{ formMen.age }}
+				</div>
+				<div class="w-full h-16 text-center pt-2">
+					Weight <br />{{ formMen.weight }}
+				</div>
+				<div class="w-full h-16 text-center pt-2">
+					Height <br />{{ formMen.height }}
+				</div>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-	export default {};
+	export default {
+		data() {
+			return {
+				formMen: {},
+				formWoman: {},
+				TBW: 0,
+			};
+		},
+		methods: {
+			calculateMen() {
+				this.TBW =
+					2.447 -
+					0.09145 * this.formMen.age +
+					0.1074 * this.formMen.height +
+					0.3362 * this.formMen.weight;
+			},
+			calculateWoman() {
+				this.TBW =
+					-2.097 +
+					0.1067 * this.formWoman.height +
+					0.2466 * this.formWoman.weight;
+			},
+		},
+	};
 </script>
 
 <style>

@@ -24,9 +24,9 @@
 							<button
 								class="mx-auto text-white font-bold py-2 px-4 rounded-full transition-all duration-300"
 							>
-								<nuxt-link :to="item.url" class="flex items-center gap-3">
-									<p>Try it now</p>
-									<fa :icon="['fas', 'arrow-right']" class="pr-1 text-xl" />
+								<nuxt-link :to="item.url" class="flex items-center">
+									<p class="mr-2">Try it now</p>
+                  <unicon name="arrow-right" :fill="$colorMode.preference === 'light' ? '#ffffff' : '#2A2D43'"></unicon>
 								</nuxt-link>
 							</button>
 						</div>

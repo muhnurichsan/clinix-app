@@ -20,14 +20,16 @@ export default {
         type: '',
         href: 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,700;0,900;1,200;1,400;1,500;1,700;1,900&display=swap'
       }
-    ]
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['~/assets/scss/tailwind.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/unicons', mode: 'client' }
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -36,7 +38,6 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/fontawesome',
   ],
 
   purgeCSS: {
@@ -49,19 +50,11 @@ export default {
     exposeConfig: true
   },
 
-  fontawesome: {
-    component: 'fa',
-    icons: {
-      solid: ['faSun', 'faMoon', 'faArrowRight', 'faArrowLeft'],
-      regular: ['faSun', 'faMoon'],
-    }
-  },
-
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     'nuxt-purgecss',
     '@nuxtjs/color-mode',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
   ],
 
   styleResources: {

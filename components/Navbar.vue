@@ -14,16 +14,12 @@
 			@click="toggleDarkMode()"
 		>
 			<div v-if="$colorMode.preference === 'light'" class="flex items-center">
-				<span>
-          <fa :icon="['far', 'moon']" class="pr-1 text-xl" />
-        </span>
-				<div>Dark Mode</div>
+        <unicon name="moon" fill="#ffffff"></unicon>
+				<div class="ml-2">Dark Mode</div>
 			</div>
 			<div v-else class="text-gray-700 flex items-center">
-				<span>
-          <fa :icon="['far', 'sun']" class="pr-1 text-lg" />
-        </span>
-				<div>Light Mode</div>
+        <unicon name="sun" fill="#2A2D43"></unicon>
+				<div class="ml-2">Light Mode</div>
 			</div>
 		</button>
 	</div>

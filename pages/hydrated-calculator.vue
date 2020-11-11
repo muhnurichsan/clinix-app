@@ -1,178 +1,201 @@
 <template>
 	<div>
-		<div class="flex flex-col md:flex-row justify-evenly gap-10">
-			<div class="w-full md:w-1/2">
-				<form class="w-full max-w-lg">
-					<h2 class="block uppercase md:text-lg font-bold mb-6 text-center">
-						Men
-					</h2>
-					<div class="flex flex-wrap -mx-3 mb-2">
-						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-6">
-							<label
-								class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-								for="grid-age"
-							>
-								Name
-							</label>
-							<input
-								class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								id="grid-name"
-								type="text"
-								placeholder="your name"
-								name="nameMen"
-							/>
-						</div>
-						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-6">
-							<label
-								class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-								for="grid-age"
-							>
-								Age
-							</label>
-							<input
-								class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								id="grid-age"
-								type="number"
-								placeholder="your age"
-								name="ageMen"
-							/>
-						</div>
-						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-							<label
-								class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-								for="grid-age"
-							>
-								Height
-							</label>
-							<input
-								class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								id="grid-city"
-								type="number"
-								placeholder="height in cm"
-								name="heightMen"
-							/>
-						</div>
-						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-							<label
-								class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-								for="grid-weight"
-							>
-								Weight
-							</label>
-							<input
-								class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								id="grid-weight"
-								type="number"
-								placeholder="weight in kg"
-								name="weightMen"
-							/>
-						</div>
-						<div class="w-full">
-							<div class="flex justify-center md:mt-6">
-								<button
-									class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-									type="button"
-								>
-									Check
-								</button>
-							</div>
-						</div>
-					</div>
-				</form>
+		<h1 class="text-center uppercase font-bold text-2xl">
+			Hydrated Calculator
+		</h1>
+		<form
+			v-if="!result"
+			class="w-full mt-24 mb-40 pb-20"
+			@submit="calcCalories($event)"
+		>
+			<div class="flex flex-col justify-center items-center">
+				<div class="text-5xl flex flex-row gap-4">
+					<input
+						type="radio"
+						id="male"
+						value="male"
+						v-model="resource.gender"
+						class="hidden"
+					/>
+					<label
+						class="cursor-pointer text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-700 hover:shadow-lg transition duration-200"
+						for="male"
+					>
+						🙋🏻‍♂️
+					</label>
+					<input
+						type="radio"
+						id="female"
+						value="female"
+						v-model="resource.gender"
+						class="hidden"
+					/>
+					<label
+						class="cursor-pointer text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-700 hover:shadow-lg transition duration-200"
+						for="female"
+					>
+						🙋🏻‍♀️
+					</label>
+				</div>
+				<span class="text-2xl font-medium capitalize">{{
+					resource.gender
+				}}</span>
 			</div>
-			<div class="w-full md:w-1/2">
-				<form class="w-full max-w-lg">
-					<h2 class="block uppercase md:text-lg font-bold mb-6 text-center">
-						Woman
-					</h2>
-
-					<div class="flex flex-wrap -mx-3 mb-2">
-						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-6">
-							<label
-								class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-								for="grid-age"
-							>
-								Name
-							</label>
-							<input
-								class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								id="grid-name"
-								type="text"
-								placeholder="your name"
-								name="nameWoman"
-							/>
-						</div>
-						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-6">
-							<label
-								class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-								for="grid-height"
-							>
-								Height
-							</label>
-							<input
-								class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								id="grid-height"
-								type="number"
-								placeholder="height in cm"
-								name="heightWoman"
-							/>
-						</div>
-						<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-							<label
-								class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-								for="grid-weight"
-							>
-								Weight
-							</label>
-							<input
-								class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								id="grid-city"
-								type="number"
-								placeholder="weight in kg"
-								name="weightWoman"
-							/>
-						</div>
-						<div class="w-full">
-							<div class="flex justify-center md:mt-6">
-								<button
-									class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-									type="button"
-								>
-									Check
-								</button>
-							</div>
-						</div>
-					</div>
-				</form>
+			<div class="flex flex-col md:flex-row items-start mt-6 mb-3">
+				<div class="w-full md:w-4/6 px-3 mb-3 md:mb-0 md:pl-0">
+					<Input
+						v-model="resource.name"
+						label="Name"
+						type="text"
+						placeholder="Full Name"
+					/>
+				</div>
+				<div class="w-full md:w-1/3 px-3 mb-3 md:mb-0">
+					<Input
+						v-model="resource.weight"
+						label="Weight"
+						type="number"
+						placeholder="Kilogram (kg)"
+					/>
+				</div>
+				<div class="w-full md:w-1/3 px-3 mb-3 md:mb-0 pr-0">
+					<Select
+						v-model="resource.level_activity"
+						label="Level Activity"
+						:options="level_activities"
+					/>
+				</div>
 			</div>
-		</div>
-		<div class="card max-w-sm bg-white h-full ml-auto mr-auto rounded-sm mb-32">
+			<div class="w-full flex flex-row justify-end mb-6">
+				<button
+					@click="calcCalories($event)"
+					class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200"
+				>
+					Submit
+				</button>
+			</div>
+		</form>
+		<div
+			v-if="result"
+			class="card max-w-sm bg-white h-full ml-auto mr-auto rounded-sm mt-24 mb-32"
+		>
 			<img
 				src="/illustration/data.svg"
 				alt=""
 				class="w-48 ml-auto mr-auto mt-8"
 			/>
-			<p class="text-center pt-10">Hi,there <strong>name</strong></p>
-			<p class="text-center">
-				this is your report <br />
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo modi
-				ipsum ex, tempore et ea libero culpa similique unde numquam dicta
-				delectus natus beatae ullam eum esse consequatur iste quos?
-			</p>
+			<div class="p-10">
+				<p>
+					Hi, <strong>{{ resource.name }}</strong>
+				</p>
+				<p class="capitalize">Gender: {{ resource.gender }}</p>
+				<p class="capitalize">
+					Level Activity:
+					{{
+						level_activities.find(
+							(item) => item.value === resource.level_activity
+						).label
+					}}
+				</p>
+				<p>Water Intake Daily: {{ result }} mililiter</p>
+			</div>
 			<div
-				class="bg-purple-700 w-full h-16 mt-20 flex flex-row justify-evenly divide-x-2 divide-gray-400"
+				class="bg-purple-700 w-full h-16 flex flex-row justify-evenly divide-x-2 divide-gray-400 text-white"
 			>
-				<div class="w-full h-16 text-center pt-2">Age <br />19</div>
-				<div class="w-full h-16 text-center pt-2">Weight <br />68</div>
-				<div class="w-full h-16 text-center pt-2">Height <br />170</div>
+				<div class="w-full h-16 text-center pt-2">
+					Weight <br />{{ resource.weight }}kg
+				</div>
+			</div>
+			<div class="w-full flex flex-row justify-between">
+				<button
+					class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
+				>
+					<nuxt-link :to="'/'" class="flex justify-center items-center gap-3">
+						<fa :icon="['fas', 'arrow-left']" class="pr-1 text-xl" />
+						<p>Back</p>
+					</nuxt-link>
+				</button>
+				<button
+					class="text-center bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
+					@click="reset()"
+				>
+					<p>Count Again</p>
+				</button>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-	export default {};
+	import Input from "@/components/Input";
+	import Select from "@/components/Select";
+
+	export default {
+		head: {
+			title: "Hydrated Calculator",
+		},
+		components: { Input, Select },
+		data() {
+			return {
+				resource: {
+					gender: "",
+					name: "",
+					weight: "",
+					level_activity: "",
+				},
+				level_activities: [
+					{
+						label: "Not Active",
+						value: "",
+					},
+					{
+						label: "Pretty Active",
+						value: "0.35",
+					},
+					{
+						label: "Active",
+						value: "0.7",
+					},
+					{
+						label: "Very Active",
+						value: "1.4",
+					},
+				],
+				result: null,
+			};
+		},
+		methods: {
+			calcCalories(event) {
+				if (event) {
+					event.preventDefault();
+					event.stopPropagation();
+				}
+				const { gender, weight, level_activity } = this.resource;
+				if (gender === "") {
+					alert("You mush choose a gender");
+					return;
+				}
+				let hydrated;
+				if (gender === "male") {
+					hydrated = weight / 30 + level_activity;
+				} else {
+					hydrated = weight / 30 + level_activity;
+				}
+
+				this.result = hydrated;
+			},
+			reset() {
+				this.resource = {
+					gender: "",
+					name: "",
+					weight: "",
+					level_activity: "",
+				};
+				this.result = null;
+			},
+		},
+	};
 </script>
 
-<style>
+<style scoped lang="scss">
 </style>

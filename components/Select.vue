@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<label
-			class="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2 dark:text-gray-300"
+			class="block uppercase tracking-wide text-md font-bold mb-2"
 		>
 			{{ label }}
 		</label>

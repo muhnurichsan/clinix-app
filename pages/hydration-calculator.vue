@@ -81,13 +81,13 @@
 					Submit
 				</button>
 			</div>
-			<div class="w-1/2 -mt-12 bg-white rounded-md">
+			<div class="w-full md:w-1/2 md:-mt-12 bg-white rounded-md">
 				<table class="table-auto">
 					<thead>
 						<tr>
 							<th class="border px-4 py-2">Formula</th>
 							<th class="border px-4 py-2">Men</th>
-							<th class="border px-4 py-2">Woman</th>
+							<th class="border py-2">Woman</th>
 						</tr>
 					</thead>
 					<tbody>

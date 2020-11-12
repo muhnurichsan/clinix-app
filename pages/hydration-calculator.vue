@@ -97,7 +97,8 @@
 						).label
 					}}
 				</p>
-				<p>Water Intake Daily: {{ result }} mililiter</p>
+				<p>Water Intake Daily: {{ result }} liter</p>
+				<p></p>
 			</div>
 			<div
 				class="bg-purple-700 w-full h-16 flex flex-row justify-evenly divide-x-2 divide-gray-400 text-white"
@@ -177,9 +178,9 @@
 				}
 				let hydrated;
 				if (gender === "male") {
-					hydrated = Math.round(weight / 30) + level_activity;
+					hydrated = weight / 30 + Number(level_activity);
 				} else {
-					hydrated = Math.round(weight / 30) + level_activity;
+					hydrated = weight / 30 + Number(level_activity);
 				}
 
 				this.result = hydrated;

@@ -92,6 +92,35 @@
 					Submit
 				</button>
 			</div>
+			<div class="w-1/2 -mt-12 bg-white rounded-md">
+				<table class="table-auto">
+					<thead>
+						<tr>
+							<th class="border px-4 py-2">Formula</th>
+							<th class="border px-4 py-2">Men</th>
+							<th class="border px-4 py-2">Woman</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="border px-4 py-2">BMR (basal metabolic rate)</td>
+							<td class="border px-4 py-2">
+								88.362 + (13.397 x Weight [kg]) + (4.799 x Height [cm]) – (5.677
+								x Age)
+							</td>
+							<td class="border px-4 py-2">
+								447.593 + (9.247 x Weight [kg]) + (3.098 x Height [cm]) – (4.33
+								x Age)
+							</td>
+						</tr>
+						<tr>
+							<td class="border px-4 py-2">TEE (total energy expenditure)</td>
+							<td class="border px-4 py-2">BMR * Level Activity</td>
+							<td class="border px-4 py-2">BMR * Level Activity</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</form>
 		<div
 			v-if="result"
@@ -116,6 +145,27 @@
 					}}
 				</p>
 				<p>Calories: {{ result }} kcals</p>
+				<div class="w-full py-3">
+					<h2 class="text-center italic font-bold">
+						Some Healthy Recomendation For You
+					</h2>
+					<table class="table-auto">
+						<thead class="bg-blue-400">
+							<tr>
+								<th class="border px-4 py-2">Fruit</th>
+								<th class="border px-4 py-2">Quantity</th>
+								<th class="border px-4 py-2">Calories</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="table in tables" :key="table">
+								<td class="border px-4 py-2">{{ table.fruit }}</td>
+								<td class="border pl-2 py-2">{{ table.quantity }}</td>
+								<td class="border px-4 py-2">{{ table.calories }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<div
 				class="bg-purple-700 w-full h-16 flex flex-row justify-evenly divide-x-2 divide-gray-400 text-white"
@@ -186,6 +236,33 @@
 					{
 						label: "Very Active",
 						value: "1.725",
+					},
+				],
+				tables: [
+					{
+						fruit: "Apple",
+						quantity: "100 gr",
+						calories: "58",
+					},
+					{
+						fruit: "Strawberries",
+						quantity: "100 gr",
+						calories: "72 ",
+					},
+					{
+						fruit: "Melon",
+						quantity: "100 gr",
+						calories: "62",
+					},
+					{
+						fruit: "Oranges",
+						quantity: "100 gr",
+						calories: "45",
+					},
+					{
+						fruit: "Pineapple",
+						quantity: "100 gr",
+						calories: "50",
 					},
 				],
 				result: null,

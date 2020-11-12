@@ -68,11 +68,36 @@
 			</div>
 			<div class="w-full flex flex-row justify-end mb-6">
 				<button
+					class="bg-gray-600 hover:bg-gray-400 hover:text-gray-700 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200 mr-5"
+				>
+					<nuxt-link :to="'/'" class="flex justify-center items-center gap-3">
+						<p>Back to home</p>
+					</nuxt-link>
+				</button>
+				<button
 					@click="calcHydrate($event)"
 					class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200"
 				>
 					Submit
 				</button>
+			</div>
+			<div class="w-1/2 -mt-12 bg-white rounded-md">
+				<table class="table-auto">
+					<thead>
+						<tr>
+							<th class="border px-4 py-2">Formula</th>
+							<th class="border px-4 py-2">Men</th>
+							<th class="border px-4 py-2">Woman</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="border px-4 py-2">Water Intake Daily</td>
+							<td class="border px-4 py-2">(Weight/30) + Level Activity</td>
+							<td class="border px-4 py-2">(Weight/30) + Level Activity</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</form>
 		<div
@@ -98,7 +123,27 @@
 					}}
 				</p>
 				<p>Water Intake Daily: {{ result }} liter</p>
-				<p></p>
+				<div class="w-full py-3">
+					<h2 class="text-center italic font-bold">
+						Some Healthy Recomendation For You
+					</h2>
+					<table class="table-auto">
+						<thead class="bg-blue-400">
+							<tr>
+								<th class="border px-4 py-2">Fruit</th>
+								<th class="border px-4 py-2">Quantity</th>
+								<th class="border px-4 py-2">Water</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="table in tables" :key="table">
+								<td class="border px-4 py-2">{{ table.fruit }}</td>
+								<td class="border pl-2 py-2">{{ table.quantity }}</td>
+								<td class="border px-4 py-2">{{ table.water }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<div
 				class="bg-purple-700 w-full h-16 flex flex-row justify-evenly divide-x-2 divide-gray-400 text-white"
@@ -160,6 +205,33 @@
 					{
 						label: "Very Active (2 hour/day)",
 						value: "1.4",
+					},
+				],
+				tables: [
+					{
+						fruit: "Watermelon",
+						quantity: "100 gr",
+						water: "91.5 ml",
+					},
+					{
+						fruit: "Strawberries",
+						quantity: "100 gr",
+						water: "91 ml",
+					},
+					{
+						fruit: "Papaya",
+						quantity: "100 gr",
+						water: "88.1 ml",
+					},
+					{
+						fruit: "Oranges",
+						quantity: "100 gr",
+						water: "86.8 ml",
+					},
+					{
+						fruit: "Pineapple",
+						quantity: "100 gr",
+						water: "86 ml",
 					},
 				],
 				result: null,

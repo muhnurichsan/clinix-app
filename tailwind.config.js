@@ -3,6 +3,9 @@ module.exports = {
     darkSelector: '.dark-mode',
     extend: {
       colors: {
+        'clinix-secondary': {
+          default: '#f1eadc',
+        },
         'clinix-yellow': {
           50: '#FFFEF8',
           100: '#FFFDF0',

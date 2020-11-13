@@ -5,7 +5,7 @@
 		</h1>
 		<form
 			v-if="!result"
-			class="w-full mt-24 mb-40 pb-20"
+      class="w-full mt-20"
 			@submit="calcCalories($event)"
 		>
 			<div class="flex flex-col justify-center items-center">
@@ -79,6 +79,7 @@
 			</div>
 			<div class="w-full flex flex-row justify-end mb-6 gap-4">
 				<button
+          type="button"
 					class="bg-gray-600 hover:bg-gray-400 hover:text-gray-700 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200"
 				>
 					<nuxt-link :to="'/'" class="flex justify-center items-center gap-3">
@@ -86,45 +87,17 @@
 					</nuxt-link>
 				</button>
 				<button
+          type="button"
 					@click="calcCalories($event)"
 					class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-800 text-white dark:text-gray-300 font-bold py-2 md:px-4 px-3 rounded-full transition-all duration-200"
 				>
 					Submit
 				</button>
 			</div>
-			<div class="w-full md:w-1/2 md:-mt-12 bg-white rounded-md">
-				<table class="table-auto">
-					<thead>
-						<tr>
-							<th class="border px-4 py-2">Formula</th>
-							<th class="border px-4 py-2">Men</th>
-							<th class="border px-4 py-2">Woman</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="border px-4 py-2">BMR (basal metabolic rate)</td>
-							<td class="border px-4 py-2">
-								88.362 + (13.397 x Weight [kg]) + (4.799 x Height [cm]) – (5.677
-								x Age)
-							</td>
-							<td class="border px-4 py-2">
-								447.593 + (9.247 x Weight [kg]) + (3.098 x Height [cm]) – (4.33
-								x Age)
-							</td>
-						</tr>
-						<tr>
-							<td class="border px-4 py-2">TEE (total energy expenditure)</td>
-							<td class="border px-4 py-2">BMR * Level Activity</td>
-							<td class="border px-4 py-2">BMR * Level Activity</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 		</form>
 		<div
 			v-if="result"
-			class="card max-w-sm bg-white h-full ml-auto mr-auto rounded-sm mt-24 mb-32"
+      class="card max-w-sm bg-white h-full ml-auto mr-auto rounded-sm mt-20"
 		>
 			<img
 				src="/illustration/datareport.svg"
@@ -145,10 +118,10 @@
 					}}
 				</p>
 				<p>Calories: {{ result }} kcals</p>
-				<div class="w-full py-3">
-					<h2 class="text-center italic font-bold">
-						Some Healthy Recomendation For You
-					</h2>
+        <h2 class="italic font-medium">
+          Some Healthy Recomendation For You
+        </h2>
+        <div class="w-full py-3 table-info result">
 					<table class="table-auto">
 						<thead class="bg-blue-400">
 							<tr>
@@ -158,7 +131,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="table in tables" :key="table">
+							<tr v-for="table in tables" :key="table.fruit">
 								<td class="border px-4 py-2">{{ table.fruit }}</td>
 								<td class="border pl-2 py-2">{{ table.quantity }}</td>
 								<td class="border px-4 py-2">{{ table.calories }}</td>
@@ -198,6 +171,39 @@
 				</button>
 			</div>
 		</div>
+    <div class="flex justify-center mt-16 mb-24 pb-6">
+      <div
+        class="w-full rounded-md text-gray-700 bg-transparent dark:text-clinix-secondary table-info">
+        <h3 class="text-2xl mb-2">Formula</h3>
+        <table class="table-auto">
+          <thead>
+          <tr>
+            <th class="border border-gray-700 dark:border-clinix-secondary px-4 py-2">Formula</th>
+            <th class="border border-gray-700 dark:border-clinix-secondary px-4 py-2">Men</th>
+            <th class="border border-gray-700 dark:border-clinix-secondary px-4 py-2">Woman</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="border border-gray-700 dark:border-clinix-secondary px-4 py-2">BMR (basal metabolic rate)</td>
+            <td class="border border-gray-700 dark:border-clinix-secondary px-4 py-2">
+              88.362 + (13.397 x Weight [kg]) + (4.799 x Height [cm]) – (5.677
+              x Age)
+            </td>
+            <td class="border border-gray-700 dark:border-clinix-secondary px-4 py-2">
+              447.593 + (9.247 x Weight [kg]) + (3.098 x Height [cm]) – (4.33
+              x Age)
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-700 dark:border-clinix-secondary px-4 py-2">TEE (total energy expenditure)</td>
+            <td class="border border-gray-700 dark:border-clinix-secondary px-4 py-2">BMR * Level Activity</td>
+            <td class="border border-gray-700 dark:border-clinix-secondary px-4 py-2">BMR * Level Activity</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 	</div>
 </template>
 

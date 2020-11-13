@@ -41,11 +41,32 @@ button:focus {
   filter: drop-shadow(6px 7px 6px rgba(0, 0, 0, .2));
 }
 
-
 // Page transitions
 .page-enter-active, .page-leave-active {
   transition: opacity 0.2s;
 }
 .page-enter, .page-leave-to {
   opacity: 0;
+}
+
+.table-info {
+  margin-left: -7px;
+  width: 106%;
+  transform: scale(.88);
+
+  &.result {
+    margin-left: -28px;
+  }
+}
+
+@screen md {
+  .table-info {
+    margin-left: 0;
+    width: 100%;
+    transform: scale(1);
+
+    &.result {
+      margin-left: 0;
+    }
+  }
 }

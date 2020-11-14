@@ -4,7 +4,10 @@
       <Navbar/>
         <Nuxt/>
     </div>
-    <footer class="h-10 text-center">Made with ❤️ by Clinix Team</footer>
+    <footer class="h-12 text-center pb-3">
+      <p>Made with ❤️ by Clinix Team</p>
+      <small>Illustration by: <a href="https://undraw.co/">Undraw.co</a></small>
+    </footer>
   </div>
 </template>
 

@@ -55,6 +55,7 @@ export default {
     'nuxt-purgecss',
     '@nuxtjs/color-mode',
     '@nuxtjs/style-resources',
+    '@nuxtjs/pwa',
   ],
 
   styleResources: {
@@ -66,6 +67,38 @@ export default {
   transitions: {
     name: 'page',
     mode: 'out-in'
+  },
+
+  pwa: {
+    icon: {
+      iconSrc: './static/icon.png'
+    },
+    meta: {
+      title: 'Clinix',
+      author: 'Clinix Team',
+    },
+    manifest: {
+      name: 'Clinix App: Get Healthy Everyday With Us',
+      short_name: 'Clinix App',
+      lang: 'en',
+      start_url: '/'
+    },
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern: 'https://fonts.googleapis.com/.*',
+          handler: 'cacheFirst',
+          method: 'GET',
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+        },
+        {
+          urlPattern: 'https://fonts.gstatic.com/.*',
+          handler: 'cacheFirst',
+          method: 'GET',
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+        },
+      ]
+    }
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

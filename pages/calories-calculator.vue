@@ -123,7 +123,7 @@
         </h2>
         <div class="w-full py-3 table-info result">
 					<table class="table-auto">
-						<thead class="bg-blue-400">
+						<thead>
 							<tr>
 								<th class="border px-4 py-2">Fruit</th>
 								<th class="border px-4 py-2">Quantity</th>
@@ -159,7 +159,7 @@
 					class="text-center bg-gray-600 hover:bg-gray-400 hover:text-gray-700 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
 				>
 					<nuxt-link :to="'/'" class="flex justify-center items-center gap-3">
-						<p>Back to home</p>
+						<p>Back</p>
 					</nuxt-link>
 				</button>
 				<button

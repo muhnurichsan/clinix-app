@@ -183,5 +183,8 @@ module.exports = {
     transitionDelay: ['responsive'],
     animation: ['responsive']
   },
+  purge: [
+    './src/**/*.vue',
+  ],
   plugins: [require('tailwindcss-dark-mode')()]
 };

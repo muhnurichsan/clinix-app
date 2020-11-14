@@ -138,18 +138,19 @@
       </div>
       <div class="w-full flex flex-row justify-between">
         <button
-          class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
+          type="button"
+          class="text-center bg-gray-600 hover:bg-gray-400 hover:text-gray-700 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
         >
           <nuxt-link :to="'/'" class="flex justify-center items-center gap-3">
-            <fa :icon="['fas', 'arrow-left']" class="pr-1 text-xl"/>
             <p>Back</p>
           </nuxt-link>
         </button>
         <button
-          class="text-center bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
+          type="button"
+          class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-400 text-white dark:text-gray-700 font-bold py-2 w-full h-full transition-all duration-200"
           @click="reset()"
         >
-          <p>Count Again</p>
+          <p>Calculate Again</p>
         </button>
       </div>
     </div>

@@ -5,7 +5,7 @@
 				src="img/logo.png"
 				alt=""
 				class="w-10 sm:w-12 md:w-20"
-				:style="$colorMode.preference === 'dark' ? 'filter: invert(1)' : ''"
+				:style="$colorMode.preference === 'dark' || $colorMode.value === 'dark' ? 'filter: invert(1)' : ''"
 			/>
 			<p class="text-base sm:text-2xl md:text-3xl ml-3">Clinix</p>
 		</nuxt-link>

@@ -37,7 +37,7 @@ button:focus {
   @apply bg-gray-700;
 }
 
-.image-illustration {
+img.image-illustration {
   filter: drop-shadow(6px 7px 6px rgba(0, 0, 0, .2));
 }
 
@@ -55,6 +55,7 @@ button:focus {
   transform: scale(.88);
 
   &.result {
+    transform: scale(.88);
     margin-left: -28px;
   }
 }

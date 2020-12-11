@@ -1,5 +1,5 @@
 # clinix-app
-
+for demo you can visit the site [here](http://clinix-app.herokuapp.com/)
 ## Build Setup
 
 ```bash
